@@ -12,7 +12,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return response()->json(['message' => 'Login successful']);
+            return new UserResource(Auth::user());
         }
 
         return response()->json([
