@@ -31,13 +31,5 @@ services:
             MYSQL_ROOT_PASSWORD: rootpassword
         volumes:
             - db_data:/var/lib/mysql
-    node:
-        image: node:20-alpine
-        working_dir: /var/www
-        volumes:
-            - ./:/var/www
-        ports:
-            - "5173:5173"
-        tty: true
 volumes:
     db_data:
