@@ -41,3 +41,6 @@ Run migrations, to create tables in the database:
 
 - API address: http://localhost:8000
 - Database port: 3307
+- Testing user data:
+    - Email: test@example.com
+    - Password: test1234
