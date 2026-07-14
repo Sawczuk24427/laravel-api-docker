@@ -22,4 +22,15 @@ class AuthController extends Controller
         ], 401);
         
     }
+
+    public function register(RegisterRequest $request){
+        $credentials = $request->validated();
+        
+        $user = User::create([
+            'name' => $credentials['name'],
+            'email' => $credentials['email'],
+            'password' => Hash::make($credentials['password'])
+        ]) ;
+        return new UserResource($user);
+}
 }
