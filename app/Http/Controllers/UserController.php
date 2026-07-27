@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\StoreUserRequest;
-use Illuminate\Http\UpdateUserRequest;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 
 class UserController extends Controller
@@ -32,6 +33,6 @@ class UserController extends Controller
 
     public function destroy(User $user){
         $user -> delete();
-        return response()->json([null, 204]);
+        return response()->noContent();
     }
 }
