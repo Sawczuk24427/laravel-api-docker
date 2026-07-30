@@ -27,7 +27,13 @@ class UserController extends Controller
     }
 
     public function update(UpdateUserRequest $request, User $user){
-        $user -> update($request->validated());
+        $validated = $request->validated();
+        if (!empty($validated['password'])) {
+    $validated['password'] = Hash::make($validated['password']);
+} else {
+    unset($validated['password']);
+}
+        $user -> update($validated);
         return new UserResource($user);
     }
 
