@@ -26,6 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => [
                 'sometimes',
+                'required',
                 'string',
                 Rule::unique('users')->ignore($this->user)
             ],
